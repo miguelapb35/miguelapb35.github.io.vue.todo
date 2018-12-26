@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+<body>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Todo List
+      </h1>
+      <div class="notification is-primary">
+        <h2>
+          Bulma + Vue.js
+        </h2>
+      </div>
+
+      <div id="todo-list-example" >
+        <form v-on:submit.prevent="addNewTodo">
+          <label for="new-todo">Add a todo</label>
+          <input
+            v-model="newTodoText"
+            id="new-todo"
+            placeholder="E.g Feed the cat"
+          >
+          <button class="button is-primary" >Add</button>
+        </form>
+        <div class="content">
+          <ul>
+            <li
+              is="todo-item"
+              v-for="(todo, index) in todos"
+              v-bind:key="todo.id"
+              v-bind:title="todo.title"
+              v-on:remove="todos.splice(index, 1)"
+            ></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <script src="vue.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
